@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Assignment3EntityFrameworkCore.Entities
 {
     #region mapping by convention
-    public class Student
+    public class Student 
     {
         public int Id { get; set; }
         public string FName { get; set; }
