@@ -17,6 +17,14 @@ namespace Assignment3EntityFrameworkCore.Entities
         public decimal? Bonus { get; set; }
         public string? Address { get; set; }
         public decimal HourRate { get; set; }
+
+        // Navigational property
+        [ForeignKey("DeptId")]
+        public Department? Department { get; set; }
+
+        // Navigational property M --> M
+        public ICollection<CourseInstructor> InstructorCourses { get; set; } = new HashSet<CourseInstructor>();
+
     }
     #endregion
 

@@ -16,6 +16,13 @@ namespace Assignment3EntityFrameworkCore.Entities
         public string LName { get; set; }
         public string? Address { get; set; }
         public int? Age { get; set; }
+
+        // Navigational property
+        [ForeignKey("DeptId")]
+        public Department? department { get; set; }
+
+        // Navigational property M --> M
+        public ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
     }
     #endregion
 

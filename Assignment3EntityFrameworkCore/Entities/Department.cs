@@ -13,6 +13,12 @@ namespace Assignment3EntityFrameworkCore.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        // Navigational property
+        public ICollection<Student> Students { get; set; } = new HashSet<Student>();
+
+        // Navigational property
+        public ICollection<Instructor> Instructors { get; set; } = new HashSet<Instructor>();
     }
     #endregion
 

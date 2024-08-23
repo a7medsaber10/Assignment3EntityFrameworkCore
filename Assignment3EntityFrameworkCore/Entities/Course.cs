@@ -14,8 +14,17 @@ namespace Assignment3EntityFrameworkCore.Entities
         public int Id { get; set; }
         public int Duration { get; set; }
         public string Name { get; set; }
-
         public string? Description { get; set; }
+
+        // Navigtional property
+        [ForeignKey("TopicId")]
+        public Topic? topic { get; set; }
+
+        // Navigational property M --> M
+        public ICollection<StudentCourse> CourseStudents { get; set; } = new HashSet<StudentCourse>();
+
+        // Navigational property M --> M
+        public ICollection<CourseInstructor> CourseInstructors { get; set; } = new HashSet<CourseInstructor>();
     }
     #endregion
 

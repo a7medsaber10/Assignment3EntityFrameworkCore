@@ -21,6 +21,8 @@ namespace Assignment3EntityFrameworkCore.Contexts
 
         public DbSet<Department> Departments { get; set; }
 
+        public DbSet<CourseInstructor> CourseInstructors { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer("Data Source = DESKTOP-4J5GA96 ; Initial Catalog = ITI_EF ; Integrated Security = True");
@@ -38,6 +40,20 @@ namespace Assignment3EntityFrameworkCore.Contexts
             modelBuilder.ApplyConfiguration(new InstructorsConfig());
 
             modelBuilder.ApplyConfiguration(new TopicsConfig());
+
+            //modelBuilder.Entity<Instructor>()
+            //            .HasMany(I => I.InstructorCourses)
+            //            .WithOne(IC => IC.Instructor);
+
+            //modelBuilder.Entity<Course>()
+            //            .HasMany(C => C.CourseInstructors)
+            //            .WithOne(CI => CI.Course);
+
+            modelBuilder.Entity<CourseInstructor>()
+                        .HasKey(CI => new {CI.CourseId, CI.InstructorId});
+
+            modelBuilder.Entity<StudentCourse>()
+                        .HasKey(SC => new {SC.StudentId, SC.CourseId});
         }
     }
 }

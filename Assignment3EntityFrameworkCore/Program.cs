@@ -74,7 +74,8 @@ namespace Assignment3EntityFrameworkCore
                 Salary = 5_000,
                 Address = "6 October",
                 Bonus = 50,
-                HourRate = 10
+                HourRate = 10,
+                //HiringDate = new DateTime(2022, 7, 28)
             };
 
             Instructor instructor2 = new Instructor()
@@ -83,7 +84,8 @@ namespace Assignment3EntityFrameworkCore
                 Salary = 7_000,
                 Address = "New Cairo",
                 Bonus = 100,
-                HourRate = 30
+                HourRate = 30,
+                //HiringDate = new DateTime(2022,2,25)
             };
 
             dbContext.Add(instructor1);

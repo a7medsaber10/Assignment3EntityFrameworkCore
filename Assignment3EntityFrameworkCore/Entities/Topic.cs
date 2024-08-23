@@ -13,6 +13,9 @@ namespace Assignment3EntityFrameworkCore.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        // Navigational property
+        public ICollection<Course> courses { get; set; } = new HashSet<Course>();
     }
     #endregion
 
