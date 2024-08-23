@@ -1,4 +1,5 @@
-﻿using Assignment3EntityFrameworkCore.Entities;
+﻿using Assignment3EntityFrameworkCore.Configurations;
+using Assignment3EntityFrameworkCore.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,19 @@ namespace Assignment3EntityFrameworkCore.Contexts
         {
             //optionsBuilder.UseSqlServer("Data Source = DESKTOP-4J5GA96 ; Initial Catalog = ITI_EF ; Integrated Security = True");
             optionsBuilder.UseSqlServer("Server = . ; Database = ITI_EFCore03 ; Trusted_Connection = True; Encrypt = False");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new StudentsConfig());
+
+            modelBuilder.ApplyConfiguration(new CoursesConfig());
+
+            modelBuilder.ApplyConfiguration(new DepartmentsConfig());
+
+            modelBuilder.ApplyConfiguration(new InstructorsConfig());
+
+            modelBuilder.ApplyConfiguration(new TopicsConfig());
         }
     }
 }
